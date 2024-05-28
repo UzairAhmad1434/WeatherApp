@@ -13,21 +13,41 @@
             <button><img src="Images/search-alt-2-svgrepo-com.svg" alt="search"></button>
         </div>
         <div class="weather">
-            <img src="Images/cloud-angled-rain-stroke-rounded (1).svg" alt="rain">
-            <h1>20°C</h1>
-            <h2>Pakistan</h2>
+            <img src="Images/rain-svgrepo-com.svg" alt="rain">
+            <h1 class="temp">20°C</h1>
+            <h2 class="city">Pakistan</h2>
         </div>
         <div class="content">
             <div class="col">
                 <img src="Images/water-svgrepo-com (1).svg" alt="humidity">
-                <p>50% humidity</p>
+                <p class="humidity">50% humidity</p>
             </div>
             <div class="col">
              <img src="Images/wind-svgrepo-com.svg" alt="wind">
-             <p>30% Wind</p>
+             <p class="wind">30% Wind</p>
             </div>
         </div>
     </div>
     <script src="script.js"></script>
+    <script>
+        apiKey='cbc939923a6f73b9f1dcf46a0d268c6f';
+        apiUrl='https://api.openweathermap.org/data/2.5/weather';
+
+        async function checkWeather(city){
+            const fullUrl = `${apiUrl}?q=${city}&appid=${apiKey}`;
+            const response= await fetch(fullUrl);
+            var data=response.json();
+            
+            console.log(data);
+            // if(!response.ok){
+            //     alert('enter correct city name')
+            // }
+            // if(city.data.name===city){
+            // }
+        }
+
+checkWeather('new york');
+
+    </script>
 </body>
 </html>
