@@ -23,31 +23,41 @@
                 <p class="humidity">50% humidity</p>
             </div>
             <div class="col">
-             <img src="Images/wind-svgrepo-com.svg" alt="wind">
-             <p class="wind">30% Wind</p>
+                <img src="Images/wind-svgrepo-com.svg" alt="wind">
+                <p class="wind">30% Wind</p>
             </div>
         </div>
     </div>
     <script src="script.js"></script>
     <script>
-        apiKey='cbc939923a6f73b9f1dcf46a0d268c6f';
-        apiUrl='https://api.openweathermap.org/data/2.5/weather';
+        const apiKey = 'cbc939923a6f73b9f1dcf46a0d268c6f';
+        const apiUrl = 'https://api.openweathermap.org/data/2.5/weather';
 
-        async function checkWeather(city){
+        async function checkWeather(city) {
             const fullUrl = `${apiUrl}?q=${city}&appid=${apiKey}`;
-            const response= await fetch(fullUrl);
-            var data=response.json();
-            
-            console.log(data);
-            // if(!response.ok){
-            //     alert('enter correct city name')
-            // }
-            // if(city.data.name===city){
-            // }
+            const response = await fetch(fullUrl);
+
+            if (!response.ok) {
+                alert('Please enter a correct city name');
+                return;
+            }
+
+            const data = await response.json();
+            console.log(data)
+
+            document.querySelector('.city').innerHTML = data.name;
+            document.querySelector('.temp').innerHTML = Math.round(data.main.temp - 273.15) + '°C';
+            document.querySelector('.humidity').innerHTML = data.main.humidity + "% humidity";
+            document.querySelector('.wind').innerHTML = data.wind.speed + ' Km/h';
         }
 
-checkWeather('new york');
+        const search = document.querySelector('.search input');
+        const btn = document.querySelector(".search button");
 
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            checkWeather(search.value);
+        });
     </script>
 </body>
 </html>
