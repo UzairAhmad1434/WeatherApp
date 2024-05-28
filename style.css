@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 body {
-  padding: 1rem;
+  padding: 3rem;
   display: flex;
   background: linear-gradient(150deg,#01527a,#0071c2);
   justify-content: center;
@@ -19,14 +19,13 @@ body {
   width: 40vw;
   display: flex;
   flex-direction: column;
-  padding: 1rem;
   gap: 1.5rem;
   justify-content: center;
   border-radius: 1rem;
   transform: 0.5s border;
 }
 .card:hover {
-  box-shadow: 0 3px 12px #728af6;
+  box-shadow: 0 3px 6px #728af6;
 }
 .search {
   display: flex;
@@ -37,9 +36,10 @@ input {
   outline: 0;
   border: 0;
   border-radius: 1rem;
-  padding: 0.7rem;
-  width: 65%;
+  padding: 0.8rem;
+  width: 70%;
   font-size: 16px;
+  margin-left: 1rem;
 }
 button {
   border-radius: 50%;
@@ -61,6 +61,7 @@ button img {
 .content {
   display: flex;
   justify-content: space-around;
+  padding-top: 1rem;
 }
 h1 {
   font-size: 50px;
@@ -74,4 +75,19 @@ h1 {
 }
 p {
   padding-top: 0.5rem;
+}
+
+@media (max-width:800px) {
+  .card{
+    width: 80vw;
+  }
+}
+@media (max-width:400px) {
+  body{
+    padding: 0;
+  }
+  .card{
+    width: 100vw;
+    border-radius: 0;
+  }
 }
