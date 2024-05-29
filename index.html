@@ -63,6 +63,9 @@
             if(data.weather[0].main=='Drizzle'){
                 imgg.src='Images/drizzle.svg';
             }
+
+            document.querySelector('.weather').style.display='flex';
+            document.querySelector('.content').style.display='flex';
         }
 
         const search = document.querySelector('.search input');

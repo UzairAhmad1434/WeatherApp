@@ -52,14 +52,14 @@ button {
 button img {
   filter: invert(1);
 }
-.weather {
-  display: flex;
+.weather{
+  display: none;
   flex-direction: column;
   gap: 0.5rem;
   align-items: center;
 }
 .content {
-  display: flex;
+  display: none;
   justify-content: space-around;
   padding-top: 1rem;
 }
